@@ -1,26 +1,21 @@
+from collections import deque
+
 N, M = list(map(int, input().split()))
 field = []
-notVisited=[]
-visited = [(0,0)]
+visited = deque([(0,0)])
 result = 0
 for i in range(N):
-	for j in range(M):
-		if i != N:
-			notVisited.append((i,j))
 	tlist = list(map(int, input()))
 	field.append(tlist)
 	print()
 
-print("notvisited",notVisited)
 print("field",field)
 input()
 
 def bfs(visited):
-	while len(visited) > 0:
-		position = visited.pop()
+	while len(visited) or visited.pop > 0:
+		position = visited.popleft()	
 		global result
-		result+=1
-	
 		if position == (N-1,M-1) :
 			break
 			return result
@@ -48,5 +43,8 @@ def bfs(visited):
 			visited.append(left)
 			field[x][y-1]=0
 		print(visited)
+		
+		result+=1
+
 bfs(visited)
 print(result)
