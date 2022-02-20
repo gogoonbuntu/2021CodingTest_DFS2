@@ -25,12 +25,12 @@ def bfs(visited):
 		up = (x-1, y)
 		left = (x, y-1)
 		right = (x, y+1)
-		
+		print("now", position,end=" ")
 		if x+1 < N and field[x+1][y]==1 and down not in visited:
 			print("go down")
 			visited.append(down)
 			field[x+1][y]=0
-		if x-1 > 0 and field[x-1][y]==1 and up not in visited:
+		if x-1 >= 0 and field[x-1][y]==1 and up not in visited:
 			print("go up")
 			visited.append(up)
 			field[x-1][y]=0
@@ -38,7 +38,7 @@ def bfs(visited):
 			print("go right")
 			visited.append(right)
 			field[x][y+1]=0
-		if y-1 > 0 and field[x][y-1]==1 and left not in visited:
+		if y-1 >= 0 and field[x][y-1]==1 and left not in visited:
 			print("go left")
 			visited.append(left)
 			field[x][y-1]=0
